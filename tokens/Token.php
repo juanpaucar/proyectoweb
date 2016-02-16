@@ -1,6 +1,6 @@
 <?php
-include("../config.php");
-include_once($basepath."bdd/Connection.php");
+//include("../config.php");
+include_once("./bdd/Connection.php");
 
 class Token{
   public function listAllTokens() {
@@ -53,20 +53,26 @@ class Token{
     $allowed_profile = 3;
     $user_id = (int)$user_id;
     $success = false;
-    $connection = Connection::getConnection
+    $connection = Connection::getConnection();
     if ($connection) {
       $sql_query = "SELECT id FROM user WHERE id = $user_id AND profile_id = $allowed_profile";
       $result = $connection->query($sql_query);
       if($result->num_rows > 0 ) {
-        $sql_query = "UPDATE token SET canjeado=1,user_id=$user_id WHERE codigo='$valor';";
-        if ($connection->query($sql_query)){
-          $success=true;
-          $message="El token fue canjeado con éxito";
+        $sql_query = "SELECT codigo FROM token WHERE codigo=$valor AND canjeado=0";
+        $result = $connection->query($sql_query);
+        if($result->num_rows > 0 ) {
+          $sql_query = "UPDATE token SET canjeado=1,user_id=$user_id WHERE codigo='$valor';";
+          if ($connection->query($sql_query)){
+            $success=true;
+            $message="El token fue canjeado con éxito";
+          } else {
+            $message = "Hubo errores al canjear el token " . $connection->error;
+          }
         } else {
-          $message = "Hubo errores al canjear el token " . $connection->error;
+          $message = "Revisa que el token que ingresaste exista o no haya sido usado";
         }
       } else {
-        $message = "Un usuario adminsitrador no puede canjear un codigo";
+        $message = "Un administrador no puede canjear tokens";
       }
     }
     return array("success" => $success, "message" => $message);

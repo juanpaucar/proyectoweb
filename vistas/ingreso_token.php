@@ -2,7 +2,7 @@
 
   <div class="col-sm-offset-3 col-sm-6">
 
-    <form class="form-inline" action="token_validator.php" method="POST">
+    <form class="form-inline" action="./token_validator.php" method="POST">
       <label>Ingresa tu token:</label>
       <div class="form-group">
         <label class="sr-only" for="token">Canjeo del token</label>
