@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-02-2016 a las 23:17:28
+-- Tiempo de generación: 16-02-2016 a las 23:47:57
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -126,11 +126,11 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`codigo`, `canjeado`, `user_id`) VALUES
-('012345', 0, NULL),
-('123456', 1, 7),
+('012345', 1, 7),
+('123456', 0, NULL),
 ('asdfgh', 0, NULL),
-('qwerty', 1, 5),
-('zxcvbn', 0, NULL);
+('qwerty', 0, NULL),
+('zxcvbn', 1, 7);
 
 -- --------------------------------------------------------
 

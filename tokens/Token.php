@@ -55,10 +55,10 @@ class Token{
     $success = false;
     $connection = Connection::getConnection();
     if ($connection) {
-      $sql_query = "SELECT id FROM user WHERE id = $user_id AND profile_id = $allowed_profile";
+      $sql_query = "SELECT id FROM user WHERE id = $user_id AND profile_id = $allowed_profile;";
       $result = $connection->query($sql_query);
       if($result->num_rows > 0 ) {
-        $sql_query = "SELECT codigo FROM token WHERE codigo=$valor AND canjeado=0";
+        $sql_query = "SELECT codigo FROM token WHERE codigo='$valor' AND canjeado=0;";
         $result = $connection->query($sql_query);
         if($result->num_rows > 0 ) {
           $sql_query = "UPDATE token SET canjeado=1,user_id=$user_id WHERE codigo='$valor';";
