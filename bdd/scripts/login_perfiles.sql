@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-02-2016 a las 19:17:25
+-- Tiempo de generación: 16-02-2016 a las 23:17:28
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -45,7 +45,14 @@ INSERT INTO `action` (`id`, `menu_name`, `url`, `parent_id`, `visible`) VALUES
 (4, 'Ver usuarios', '/login_perfiles/users/list_view.php', 2, 1),
 (5, 'Ejemplo padre', '#', 1, 1),
 (6, 'Ejemplo hijo', 'ejemplo.php', 5, 1),
-(7, 'Actualizar Usuario', '/login_perfiles/users/update_view.php', 2, 0);
+(7, 'Actualizar Usuario', '/login_perfiles/users/update_view.php', 2, 0),
+(8, 'Tokens', '#', NULL, 1),
+(9, 'Listar tokens', '#', 8, 1),
+(10, 'Crear Token', '#', 8, 1),
+(11, 'Borrar Token', '#', 8, 1),
+(12, 'Canjear Token', '/login_perfiles/token_verificador.php', 8, 1),
+(13, 'Listar mis Tokens', '#', 8, 1),
+(14, 'token', '/login_perfiles/token.php', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -96,7 +103,11 @@ INSERT INTO `profile_action` (`profile_id`, `action_id`) VALUES
 (2, 4),
 (3, 1),
 (3, 2),
-(3, 4);
+(3, 4),
+(3, 8),
+(3, 12),
+(3, 13),
+(3, 14);
 
 -- --------------------------------------------------------
 
@@ -116,7 +127,7 @@ CREATE TABLE `token` (
 
 INSERT INTO `token` (`codigo`, `canjeado`, `user_id`) VALUES
 ('012345', 0, NULL),
-('123456', 0, NULL),
+('123456', 1, 7),
 ('asdfgh', 0, NULL),
 ('qwerty', 1, 5),
 ('zxcvbn', 0, NULL);
@@ -142,7 +153,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `profile_id`) VALUES
 (1, 'aplicaciones', 'f2773d2e02a83bb41e8e51387684b11d', 'Juan Pérez', 1),
 (5, 'diegolas', '25d55ad283aa400af464c76d713c07ad', 'Diegol', 3),
-(6, 'asdqwe', '96f0f08c0188ba04898ce8cc465c19c4', 'asd qwe', 3);
+(6, 'asdqwe', '96f0f08c0188ba04898ce8cc465c19c4', 'asd qwe', 3),
+(7, 'qwe', 'efe6398127928f1b2e9ef3207fb82663', 'asd', 3);
 
 --
 -- Índices para tablas volcadas
@@ -189,7 +201,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `action`
 --
 ALTER TABLE `action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `profile`
 --
@@ -199,7 +211,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Restricciones para tablas volcadas
 --
