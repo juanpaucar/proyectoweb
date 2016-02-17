@@ -1,5 +1,6 @@
 <?php include("login_redirect.php"); ?>
 <?php include("header_login.php"); ?>
+<?php include("vistas/banner_ppal.php"); ?>
 
 <?php
 //Si es que se redireccionó a esta página se verifica el estado y mensaje de la petición
@@ -25,16 +26,16 @@ if(isset($_GET["messagge"]) && isset($_GET["status"])){
 <div class="container">
     <div class="col-md-12">
         <div class="col-md-offset-4 col-md-4">
-            <h1 class="text-info text-center">Login de Usuarios</h1>
+            <h1 class="text-info text-center" style="color: white">Login de Usuarios</h1>
             <form id="frmLogin" method="post" action="login.php" >
             <fieldset>
                 <legend class="text-center"></legend>
                 <div class="row form-group">
-                    <label class="control-label">Usuario</label>
+                    <label class="control-label" style="color: white">Usuario</label>
                     <input name="username"  type="text" class="form-control" placeholder="Usuario" >
                 </div>
                 <div class="row form-group">
-                    <label class="control-label">Contrase&ntilde;a</label>
+                    <label class="control-label" style="color: white">Contrase&ntilde;a</label>
                     <input name="password" type="password" class="form-control" placeholder="Contrase&ntilde;a" >
                 </div>
                 <div class="row"><br>
@@ -42,7 +43,7 @@ if(isset($_GET["messagge"]) && isset($_GET["status"])){
                 </div><br>
             </fieldset>
             </form>
-            <div class="text-center">
+            <div class="text-center" style="color: white">
                 Si no tienes cuenta puedes <b><a href="register_view.php">REGISTRARTE AQUÍ</a></b> 
             </div>
         </div>

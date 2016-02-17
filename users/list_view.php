@@ -23,18 +23,18 @@ if(isset($_GET["messagge"]) && isset($_GET["status"])){
 <?php } }?>
 
 <div class="col-md-8 col-md-offset-2">
-<h3 class="text-center">Administración de Usuarios &nbsp;<span class="glyphicon glyphicon-user"></span></h3>
+  <h3 class="text-center" style="color: white">Administración de Códigos&nbsp;</h3>
 
 <?php
 $users = User::getAllUsers();
 if(!empty($users)){?>
-    <table class="table table-striped " id="table_user">
+    <table class="table" id="table_user">
         <thead>
         <tr>
-            <th>Nombres y Apellidos</th>
-            <th>Nombre de usuario</th>
-            <th>Perfil</th>
-            <th>Acciones</th>
+            <th style="color: white">Nombres y Apellidos</th>
+            <th style="color: white">Nombre de usuario</th>
+            <th style="color: white">Perfil</th>
+            <th style="color: white">Acciones</th>
         </tr>
         </thead>
         <tbody>

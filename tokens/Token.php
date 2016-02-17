@@ -1,9 +1,9 @@
 <?php
 //include("../config.php");
-include_once("./bdd/Connection.php");
+include_once($basepath."bdd/Connection.php");
 
 class Token{
-  public function listAllTokens() {
+  public static function listAllTokens() {
     $tokens = array();
     $connection = Connection::getConnection();
     $sql_query = "SELECT * FROM token";
@@ -37,11 +37,11 @@ class Token{
   public function deleteToken($valor) {
     $connection = Connection::getConnection();
     if($connection) {
-      $sql_query = "DELETE FROM token WHERE codigo = $valor";
+      $sql_query = "DELETE FROM token WHERE codigo = '$valor'";
       if($connection->query($sql_query)) {
         return array("success" => true, "messagge" => "El token fue eliminado exitosamente");
       } else {
-        return array("success" => false, "messagge" => "Existieron errores al eliminar al token" . $connection->error);
+        return array("success" => false, "messagge" => "Existieron errores al eliminar al token " . $connection->error);
       }
       $connection->close();
     }
@@ -76,5 +76,15 @@ class Token{
       }
     }
     return array("success" => $success, "message" => $message);
+  }
+
+  public function contarTokensCanjeados($user_id) {
+    $connection = Connection::getConnection();
+    $user_id = (int)$user_id;
+    $sql_query = "SELECT count(*) AS total FROM token WHERE user_id=$user_id";
+    $result = $connection->query($sql_query);
+    $data = $result->fetch_assoc();
+    $c = (int)$data['total'];
+    return $c;
   }
 }

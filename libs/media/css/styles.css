@@ -484,15 +484,22 @@ div#alert_bubble ul,div#alert_bubble li{
 }
 
 div#welcome_user{
+    background-image: url('images/fondo2.jpg')  ;
+   //background-color: black;
+   //background-position: center;
+    //-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100%;
     padding-right: 15px;
     font-weight: bold;
     text-align: right;
-    background: #000;
-    color: #fff;
+    //background: #000;
+    //color: #fff;
     font-family: "Lucida Sans Unicode","Lucida Sans","Lucida Grande",Arial,sans-serif;
     font-size: 14px;
     line-height: 17px;
-    height: 100px;
+    height: 200px;
 
 }
 

@@ -10,7 +10,7 @@ $user_object = new User();
 $user_create = $user_object->createUser($user, $pass, $name, $profile_id);
 $status = $user_create["success"];
 $messagge = $user_create["messagge"];
-header("Location: create_view.php?status=$status&messagge=$messagge");
+header("Location: ./create_view.php?status=$status&messagge=$messagge");
 
 ?>
 

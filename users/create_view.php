@@ -1,5 +1,4 @@
 <?php include("../header_main.php");?>
-
 <?php
 /*
  * Control y muestra de mensajes. NO BORRAR
