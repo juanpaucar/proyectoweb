@@ -3,17 +3,16 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2016 a las 16:34:29
+-- Tiempo de generación: 17-02-2016 a las 16:39:14
 -- Versión del servidor: 10.0.17-MariaDB
-
-CREATE DATABASE sorteo;
-
-USE sorteo;
-
 -- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+CREATE DATABASE sorteo;
+
+USE sorteo;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -22,7 +21,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `login_perfiles`
+-- Base de datos: `sorteo`
 --
 
 -- --------------------------------------------------------
@@ -46,17 +45,17 @@ CREATE TABLE `action` (
 INSERT INTO `action` (`id`, `menu_name`, `url`, `parent_id`, `visible`) VALUES
 (1, 'Administración', '#', NULL, 1),
 (2, 'Usuarios', '#', 1, 1),
-(3, 'Crear usuario', '/login_perfiles/users/create_view.php', 2, 1),
-(4, 'Ver usuarios', '/login_perfiles/users/list_view.php', 2, 1),
+(3, 'Crear usuario', '/sorteo/users/create_view.php', 2, 1),
+(4, 'Ver usuarios', '/sorteo/users/list_view.php', 2, 1),
 (5, 'Editar Datos Usuario', '#', 2, 1),
-(7, 'Actualizar Usuario', '/login_perfiles/users/update_view.php', 2, 0),
+(7, 'Actualizar Usuario', '/sorteo/users/update_view.php', 2, 0),
 (8, 'Tokens', '#', NULL, 1),
-(9, 'Listar tokens', '/login_perfiles/tokens/list_view.php', 8, 1),
-(10, 'Crear Token', '/login_perfiles/tokens/create_view.php', 8, 1),
-(12, 'Canjear Token', '/login_perfiles/canjear.php', 8, 1),
-(13, 'Nuevo sorteo', '/login_perfiles/sorteo/create_view.php', 14, 1),
+(9, 'Listar tokens', '/sorteo/tokens/list_view.php', 8, 1),
+(10, 'Crear Token', '/sorteo/tokens/create_view.php', 8, 1),
+(12, 'Canjear Token', '/sorteo/canjear.php', 8, 1),
+(13, 'Nuevo sorteo', '/sorteo/sorteo/create_view.php', 14, 1),
 (14, 'Sorteos', '#', NULL, 1),
-(15, 'Ver sorteos anteriores', '/login_perfiles/sorteo/list_view.php', 14, 1);
+(15, 'Ver sorteos anteriores', '/sorteo/sorteo/list_view.php', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +134,8 @@ CREATE TABLE `sorteo` (
 --
 
 INSERT INTO `sorteo` (`id`, `fecha`, `ganador`, `nombre`) VALUES
-(10, '2016-02-17 15:30:16', '012345', 'NO CANJEADO');
+(10, '2016-02-17 15:30:16', '012345', 'NO CANJEADO'),
+(11, '2016-02-17 15:38:18', 'asdfgh', 'NO CANJEADO');
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,8 @@ INSERT INTO `token` (`codigo`, `canjeado`, `user_id`) VALUES
 ('123456', 0, NULL),
 ('asdfgh', 0, NULL),
 ('okmijn', 0, NULL),
-('qwerty', 0, NULL);
+('qwerty', 0, NULL),
+('sfdgsdfgdfgsdfg', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -245,7 +246,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT de la tabla `sorteo`
 --
 ALTER TABLE `sorteo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
