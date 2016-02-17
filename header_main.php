@@ -5,7 +5,7 @@ include($basepath."verified_session.php");
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>PROJECT TITLE</title>
+        <title>FABULOSO SORTEO</title>
        
         <link href="<?php echo $baseurl; ?>libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
         <link href="<?php echo $baseurl; ?>libs/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all">
