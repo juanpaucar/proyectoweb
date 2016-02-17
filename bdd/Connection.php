@@ -15,7 +15,7 @@ class Connection {
             $server = "localhost";
             $user = "root";
             $pass = "";
-            $dbname = "login_perfiles";
+            $dbname = "sorteo";
             
             $connection = new mysqli($server,$user,$pass,$dbname);
             if($connection->connect_error){

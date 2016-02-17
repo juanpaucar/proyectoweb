@@ -3,8 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2016 a las 06:16:42
+-- Tiempo de generación: 17-02-2016 a las 16:34:29
 -- Versión del servidor: 10.0.17-MariaDB
+
+CREATE DATABASE sorteo;
+
+USE sorteo;
+
 -- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -49,7 +54,9 @@ INSERT INTO `action` (`id`, `menu_name`, `url`, `parent_id`, `visible`) VALUES
 (9, 'Listar tokens', '/login_perfiles/tokens/list_view.php', 8, 1),
 (10, 'Crear Token', '/login_perfiles/tokens/create_view.php', 8, 1),
 (12, 'Canjear Token', '/login_perfiles/canjear.php', 8, 1),
-(13, 'Sortear', '#', 8, 1);
+(13, 'Nuevo sorteo', '/login_perfiles/sorteo/create_view.php', 14, 1),
+(14, 'Sorteos', '#', NULL, 1),
+(15, 'Ver sorteos anteriores', '/login_perfiles/sorteo/list_view.php', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -97,6 +104,8 @@ INSERT INTO `profile_action` (`profile_id`, `action_id`) VALUES
 (1, 9),
 (1, 10),
 (1, 13),
+(1, 14),
+(1, 15),
 (2, 1),
 (2, 2),
 (2, 3),
@@ -107,6 +116,26 @@ INSERT INTO `profile_action` (`profile_id`, `action_id`) VALUES
 (3, 5),
 (3, 8),
 (3, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sorteo`
+--
+
+CREATE TABLE `sorteo` (
+  `id` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ganador` varchar(50) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `sorteo`
+--
+
+INSERT INTO `sorteo` (`id`, `fecha`, `ganador`, `nombre`) VALUES
+(10, '2016-02-17 15:30:16', '012345', 'NO CANJEADO');
 
 -- --------------------------------------------------------
 
@@ -125,11 +154,11 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`codigo`, `canjeado`, `user_id`) VALUES
-('012345', 1, 7),
+('012345', 0, NULL),
 ('123456', 0, NULL),
-('asdfgh', 1, 7),
-('mosho gay', 0, NULL),
-('okmijn', 0, NULL);
+('asdfgh', 0, NULL),
+('okmijn', 0, NULL),
+('qwerty', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,6 +209,12 @@ ALTER TABLE `profile_action`
   ADD KEY `fk_profile_has_action_profile1_idx` (`profile_id`);
 
 --
+-- Indices de la tabla `sorteo`
+--
+ALTER TABLE `sorteo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `token`
 --
 ALTER TABLE `token`
@@ -200,12 +235,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `action`
 --
 ALTER TABLE `action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `profile`
 --
 ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `sorteo`
+--
+ALTER TABLE `sorteo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
