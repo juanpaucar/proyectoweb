@@ -23,7 +23,7 @@ if(isset($_GET["messagge"]) && isset($_GET["status"])){
 <?php } }?>
 
 <div class="col-md-8 col-md-offset-2">
-  <h3 class="text-center" style="color: white">Administración de Códigos&nbsp;</h3>
+  <h3 class="text-center" style="color: white">Administración de Usuarios&nbsp;</h3>
 
 <?php
 $users = User::getAllUsers();
@@ -90,6 +90,6 @@ if(!empty($users)){?>
         }
         $('#table_user')
             .removeClass( 'display' )
-            .addClass('table table-striped table-bordered');
+            .addClass('table table-bordered');
     });
 </script>

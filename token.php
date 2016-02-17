@@ -1,6 +1,9 @@
 <?php
   include("header_login.php");
-  include("vistas/banner.php");
+?>
+
+<div class="col-md-offset-3 col-md-6">
+<?php
   if (!isset($_GET['success']) || !isset($_GET['message'])) {
     header('Location: canjear.php');
   } else {
@@ -11,4 +14,11 @@
       include("./vistas/token_fallido.php");
     }
   }
+?>
+
+</div>
+
+<?php
+  include("vistas/banner.php");
+  include("vistas/ingreso_token.php");
 ?>

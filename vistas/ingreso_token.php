@@ -15,6 +15,11 @@
     </form>
     
 
+    <div align="center">
+      <a href="./main.php">
+        <button class="btn btn-info">Regresar</button>
+      </a>
+    </div>
   </div>
 
 </div>
