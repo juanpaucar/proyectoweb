@@ -3,23 +3,20 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2016 a las 16:39:14
+-- Tiempo de generación: 18-02-2016 a las 03:11:33
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE DATABASE sorteo;
-
-USE sorteo;
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
+CREATE DATABASE sorteo;
+USE sorteo;
 --
 -- Base de datos: `sorteo`
 --
@@ -135,7 +132,13 @@ CREATE TABLE `sorteo` (
 
 INSERT INTO `sorteo` (`id`, `fecha`, `ganador`, `nombre`) VALUES
 (10, '2016-02-17 15:30:16', '012345', 'NO CANJEADO'),
-(11, '2016-02-17 15:38:18', 'asdfgh', 'NO CANJEADO');
+(11, '2016-02-17 15:38:18', 'asdfgh', 'NO CANJEADO'),
+(12, '2016-02-17 18:29:29', 'sfdgsdfgdfgsdfg', 'NO CANJEADO'),
+(13, '2016-02-17 18:31:59', '12345', 'NO CANJEADO'),
+(14, '2016-02-17 18:47:33', '12345', 'NO CANJEADO'),
+(15, '2016-02-17 18:54:41', '123456', 'asd'),
+(16, '2016-02-17 19:03:59', 'aaaaa', 'asd'),
+(17, '2016-02-17 19:05:58', '1234', 'Diegol');
 
 -- --------------------------------------------------------
 
@@ -154,12 +157,12 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`codigo`, `canjeado`, `user_id`) VALUES
-('012345', 0, NULL),
+('1234', 0, NULL),
+('12345', 0, NULL),
 ('123456', 0, NULL),
+('aaaaa', 0, NULL),
 ('asdfgh', 0, NULL),
-('okmijn', 0, NULL),
-('qwerty', 0, NULL),
-('sfdgsdfgdfgsdfg', 0, NULL);
+('zxcvbn', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -246,7 +249,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT de la tabla `sorteo`
 --
 ALTER TABLE `sorteo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
